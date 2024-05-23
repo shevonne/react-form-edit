@@ -16,7 +16,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          Learn React 我能学好react找到远程工作
         </a>
       </header>
     </div>
