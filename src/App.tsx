@@ -1,24 +1,29 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+// import './App.css';
+import { title } from 'process';
+
+const requstlist = [
+  { id: 'req1', title: '问卷列表1', show: false },
+  { id: 'req2', title: '问卷列表2', show: true },
+  { id: 'req3', title: '问卷列表3', show: false },
+  { id: 'req4', title: '问卷列表4', show: true },
+];
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React 我能学好react找到远程工作
-        </a>
-      </header>
+    <div>
+      <h1>调查问卷</h1>
+      <div>
+        {requstlist.map((item) => {
+          const { id, title, show } = item;
+          return (
+            <li key={id}>
+              {title}
+              {show ? <button>可编辑</button> : <button>不可编辑</button>}
+            </li>
+          );
+        })}
+      </div>
     </div>
   );
 }
