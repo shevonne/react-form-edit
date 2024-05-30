@@ -1,8 +1,17 @@
 .item-list {
   height: 35px;
   line-height: 35px;
+  border: 1px solid #009988;
+  margin-bottom: 20px;
+  width: 500px;
+  padding: 5px;
 }
-
+.item-list button {
+  float: right;
+}
+.item-list span {
+  padding-left: 10px;
+}
 .item-list-pub {
-  color: aquamarine;
+  color: #009988;
 }
