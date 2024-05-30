@@ -1,46 +1,34 @@
-# Getting Started with Create React App
+# 项目名称
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+本项目是一个基于 React 的问卷低代码编辑器应用。
 
-## Available Scripts
+## 开发阶段及项目功能列表
 
-In the project directory, you can run:
+- [x] 创建 React 项目开发环境
+- [x] JSX 语法和组件基础 - 学完即可开发一个静态页面
+- [x] React Hooks - 处理逻辑监听状态，让页面动起来
+- [x] 在 React 中使用 CSS 样式 - 为页面“美颜”，页面变漂亮
+- [x] React-router 路由 - 配置多页面，由单页变成一个系统
+- [x] 使用 AntDesign UI 组件库 - 常用组件拿来即用
+- [x] React 表单组件 - 接收用户输入，让用户和页面互动起来
+- [x] Ajax 网络请求 part1 - 搭建 Mock 服务，完成前后端通讯
+- [x] Ajax 网络请求 part2 - 一次学习多种形式的列表和分页功能
+- [x] Redux 状态管理 - 复杂项目的数据管理形式
+- [x] 开发问卷编辑器 part1 - 寻找突破口，用两个组件打通全部流程
+- [x] 开发问卷编辑器 part2 - 增加其他组件，展现设计的扩展性
+- [x] 开发问卷编辑器 part3 - 聚焦高级功能：拖拽排序和撤销重做
+- [x] 问卷数据统计 - 有统计数据才能体现完整项目的业务闭环
 
-### `npm start`
+## 安装项目
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. Clone 项目到本地
+2. 运行 `npm install` 安装依赖
+3. 运行 `npm start` 启动开发服务器
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## 使用说明
 
-### `npm test`
+在开发中，遵循项目功能列表的顺序，依次学习实战部分内容。在每个阶段的开发中，可以参考相应的 README 或文档，逐步实现功能。
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## 反馈与贡献
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+如果您发现任何问题或有任何建议，欢迎提交 issue。同时也欢迎贡献代码，共同改进项目。
