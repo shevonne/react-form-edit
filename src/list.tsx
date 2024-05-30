@@ -1,5 +1,7 @@
 import React, { FC, useState } from 'react';
 import QuestionCard from './components/QuestionCard';
+import { produce } from 'immer';
+
 const List: FC = () => {
   const [questionList, setQuestionList] = useState([
     { id: 'req1', title: '问卷列表1', show: false },
@@ -11,35 +13,65 @@ const List: FC = () => {
   function add() {
     //后三位随机数
     let randomNumber = Math.random().toString().slice(-3);
+    //方式1：
+    // setQuestionList(
+    //   questionList.concat({
+    //     id: 'req' + randomNumber,
+    //     title: '问卷列表' + randomNumber,
+    //     show: false,
+    //   })
+    // );
+    //immer方式
     setQuestionList(
-      questionList.concat({
-        id: 'req' + randomNumber,
-        title: '问卷列表' + randomNumber,
-        show: false,
+      produce((draft) => {
+        draft.push({
+          id: 'req' + randomNumber,
+          title: '问卷列表' + randomNumber,
+          show: false,
+        });
       })
     );
   }
 
   //删除
   function deleteQuestion(id: string) {
+    //方式1：
+    // setQuestionList(
+    //   questionList.filter((q) => {
+    //     if (q.id === id) return false;
+    //     else return true;
+    //   })
+    // );
+    //immer方式
     setQuestionList(
-      questionList.filter((q) => {
-        if (q.id === id) return false;
-        else return true;
+      produce((draft) => {
+        const index = draft.findIndex((q) => q.id === id);
+        draft.splice(index, 1);
       })
     );
   }
 
   //发布
   function publishQuestion(id: string) {
+    //方式1：
+    // setQuestionList(
+    //   questionList.map((q) => {
+    //     if (q.id !== id) return q;
+    //     else {
+    //       return {
+    //         ...q,
+    //         show: true,
+    //       };
+    //     }
+    //   })
+    // );
+
+    //immer方式：
     setQuestionList(
-      questionList.map((q) => {
-        if (q.id !== id) return q;
-        else {
-          return {
-            ...q,
-            show: true,
-          };
+      produce((draft) => {
+        const item = draft.find((q) => q.id === id);
+        if (item) {
+          item.show = true;
         }
       })
     );
@@ -51,9 +83,8 @@ const List: FC = () => {
       {questionList.map((item) => {
         const { id, title, show } = item;
         return (
-          <div>
+          <div key={id}>
             <QuestionCard
-              key={id}
               id={id}
               title={title}
               isPublished={show}

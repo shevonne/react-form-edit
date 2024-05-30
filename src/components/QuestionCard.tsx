@@ -13,7 +13,7 @@ type PropsType = {
 const QuestionCard: FC<PropsType> = (props) => {
   const { id, title, isPublished, deleteQuestion, publishQuestion } = props;
   return (
-    <div key={id} className="item-list">
+    <div className="item-list">
       <strong>{title}</strong>
       {isPublished ? (
         <span className="item-list-pub">已发布</span>
