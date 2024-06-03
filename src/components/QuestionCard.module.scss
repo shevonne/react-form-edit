@@ -1,0 +1,42 @@
+.container {
+  margin-bottom: 20px;
+  padding: 12px;
+  border-radius: 3px;
+  background-color: #fff;
+
+  &:hover {
+    box-shadow: 0 4px 10px #eee;
+  }
+}
+
+.title {
+  display: flex;
+  .left {
+    flex: 1;
+  }
+  span {
+    padding: 0 10px;
+  }
+  .right {
+    flex: 1;
+    text-align: center;
+    font-size: 12px;
+    .pub {
+      color: #009988;
+    }
+  }
+}
+
+.button-container {
+  display: flex;
+  .left {
+    flex: 1;
+  }
+  .right {
+    flex: 1;
+    text-align: center;
+    button {
+      color: #999;
+    }
+  }
+}
