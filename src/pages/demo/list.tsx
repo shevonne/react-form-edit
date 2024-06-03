@@ -1,5 +1,5 @@
 import React, { FC, useState } from 'react';
-import QuestionCard from './components/QuestionCard';
+import QuestionCard from '../../components/demo/QuestionCardDemo';
 import { produce } from 'immer';
 
 const List: FC = () => {

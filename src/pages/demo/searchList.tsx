@@ -1,14 +1,5 @@
-import React, { FC, useState } from 'react';
+import React, { FC } from 'react';
 const SearchList: FC = () => {
-  // const [listdata, SetListData] = useState([
-  //   { category: 'Fruits', price: '$1', stocked: true, name: 'Apple' },
-  //   { category: 'Fruits', price: '$1', stocked: true, name: 'Dragonfruit' },
-  //   { category: 'Fruits', price: '$2', stocked: false, name: 'Passionfruit' },
-  //   { category: 'Vegetables', price: '$2', stocked: true, name: 'Spinach' },
-  //   { category: 'Vegetables', price: '$4', stocked: false, name: 'Pumpkin' },
-  //   { category: 'Vegetables', price: '$1', stocked: true, name: 'Peas' },
-  // ]);
-
   type ChildItem = {
     category: string;
     price: string;
@@ -21,7 +12,7 @@ const SearchList: FC = () => {
     child: ChildItem[];
   };
   //数据分组
-  const filterArray = [
+  const filterArray: CategoryItem[] = [
     {
       category: 'Fruits',
       child: [
@@ -56,25 +47,37 @@ const SearchList: FC = () => {
   // }
 
   //列表组件
-  function NamePriceList(filterArray: CategoryItem) {
+  function NamePriceList(dataArray: CategoryItem[]) {
     return (
       <div>
         <p className="table-title">
           <span>Name</span>
           <span>Price</span>
         </p>
-        {filterArray.map((item) => {
-          <CataLogList cateTitle={item.category} data={item.child} />;
+        {dataArray.map((item) => {
+          return (
+            <CataLogList
+              cateTitle={item.category}
+              data={item.child}
+              key={item.category}
+            />
+          );
         })}
       </div>
     );
   }
 
   //ul列表
-  function CataLogList(cateTitle: string, data: Object) {
+  function CataLogList({
+    cateTitle,
+    data,
+  }: {
+    cateTitle: string;
+    data: ChildItem[];
+  }) {
     return (
       <div>
-        <h3>cateTitle</h3>
+        <h3>{cateTitle}</h3>
         {data.map((item) => {
           return (
             <div key={item.name}>
@@ -93,8 +96,7 @@ const SearchList: FC = () => {
   };
 
   function ItemList(props: PropsType) {
-    const name = props.name;
-    const price = props.price;
+    const { name, price } = props;
     return (
       <li>
         <span>{name}</span>

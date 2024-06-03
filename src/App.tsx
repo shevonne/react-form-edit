@@ -1,8 +1,6 @@
 import React from 'react';
+import List from './pages/QuestionList';
 // import './App.css';
-import { title } from 'process';
-import List from './list';
-
 function App() {
   return (
     <>
