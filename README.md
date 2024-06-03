@@ -6,8 +6,8 @@
 
 - [x] 创建 React 项目开发环境
 - [x] JSX 语法和组件基础
-- [ ] React Hooks
-- [ ] 在 React 中使用 CSS 样式
+- [x] React Hooks
+- [x] 在 React 中使用 CSS 样式
 - [ ] React-router 路由 - 配置多页面，由单页变成一个系统
 - [ ] 使用 AntDesign UI 组件库 - 常用组件拿来即用
 - [ ] React 表单组件 - 接收用户输入
