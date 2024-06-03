@@ -1,6 +1,6 @@
 import React, { FC, useState } from 'react';
 import styles from './QuestionList.module.scss';
-import QuestionCard from '../components/QuestionCard';
+import QuestionCard from '../../components/QuestionCard';
 import { it } from 'node:test';
 //mock数据
 const rowQuestionList = [

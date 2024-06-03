@@ -1,5 +1,5 @@
 import React from 'react';
-import List from './pages/QuestionList';
+import List from './pages/manage/QuestionList';
 // import './App.css';
 function App() {
   return (
