@@ -1,12 +1,9 @@
 import React from 'react';
-import List from './pages/manage/QuestionList';
+import { RouterProvider } from 'react-router-dom';
+import routerConfig from './router/index';
 // import './App.css';
 function App() {
-  return (
-    <>
-      <List />
-    </>
-  );
+  return <RouterProvider router={routerConfig}></RouterProvider>;
 }
 
 export default App;
