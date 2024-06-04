@@ -1,12 +1,22 @@
 import React, { FC } from 'react';
 import { Outlet } from 'react-router-dom';
+import { Flex, Layout } from 'antd';
+import styles from './MainLayout.module.scss';
+const { Header, Footer, Sider, Content } = Layout;
 const MainLayout: FC = () => {
   return (
-    <>
-      <div>Mainlayout header</div>
-      <Outlet />
-      <div>Mainlayout footer</div>
-    </>
+    <Layout>
+      <Header className={styles.header}>
+        <div className={styles.left}>LOGO</div>
+        <div className={styles.right}>登录</div>
+      </Header>
+      <Content className={styles.main}>
+        <Outlet />
+      </Content>
+      <Footer className={styles.footer}>
+        低代码问卷 &copy; 2024 - present.Created by shevon
+      </Footer>
+    </Layout>
   );
 };
 
