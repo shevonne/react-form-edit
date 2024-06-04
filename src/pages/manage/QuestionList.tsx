@@ -1,7 +1,7 @@
 import React, { FC, useState } from 'react';
 import styles from './QuestionList.module.scss';
+import { useTitle } from 'ahooks';
 import QuestionCard from '../../components/QuestionCard';
-import { it } from 'node:test';
 //mock数据
 const rowQuestionList = [
   {
@@ -55,6 +55,7 @@ const rowQuestionList = [
 ];
 
 const List: FC = () => {
+  useTitle('我的');
   const [questionList, SetQuestionList] = useState(rowQuestionList);
 
   return (
