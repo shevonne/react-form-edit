@@ -1,8 +1,8 @@
 import React, { FC } from 'react';
 import { Outlet } from 'react-router-dom';
-import { Flex, Layout } from 'antd';
+import { Layout } from 'antd';
 import styles from './MainLayout.module.scss';
-const { Header, Footer, Sider, Content } = Layout;
+const { Header, Footer, Content } = Layout;
 const MainLayout: FC = () => {
   return (
     <Layout>
