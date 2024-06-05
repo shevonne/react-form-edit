@@ -14,7 +14,7 @@ const MainLayout: FC = () => {
         <Outlet />
       </Content>
       <Footer className={styles.footer}>
-        低代码问卷 &copy; 2024 - present.Created by shevon
+        低代码问卷 &copy; 2024 - present. Created by shevon
       </Footer>
     </Layout>
   );
