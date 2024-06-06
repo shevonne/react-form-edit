@@ -7,7 +7,7 @@ const MainLayout: FC = () => {
   return (
     <Layout>
       <Header className={styles.header}>
-        <div className={styles.left}>LOGO</div>
+        <div className={styles.left}>LOGO </div>
         <div className={styles.right}>登录</div>
       </Header>
       <Content className={styles.main}>
