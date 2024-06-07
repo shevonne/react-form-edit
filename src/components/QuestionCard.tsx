@@ -72,7 +72,11 @@ const QuestionCard: FC<PropsType> = (props: PropsType) => {
           <Button type="text" icon={<EditOutlined />}>
             编辑问卷
           </Button>
-          <Button type="text" icon={<LineChartOutlined />}>
+          <Button
+            type="text"
+            icon={<LineChartOutlined />}
+            disabled={!isPulished}
+          >
             数据统计
           </Button>
         </div>
