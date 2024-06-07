@@ -1,6 +1,6 @@
 import React, { FC } from 'react';
 import styles from './QuestionCard.module.scss';
-import { Button, Divider, Space, Tag } from 'antd';
+import { Button, Divider, Space, Tag, Modal, message } from 'antd';
 import { Link } from 'react-router-dom';
 import {
   EditOutlined,
@@ -8,6 +8,7 @@ import {
   DeleteOutlined,
   CopyOutlined,
   StarOutlined,
+  ExclamationCircleOutlined,
 } from '@ant-design/icons';
 
 //定义类型
@@ -22,6 +23,21 @@ type PropsType = {
 
 const QuestionCard: FC<PropsType> = (props: PropsType) => {
   const { _id, title, creatAt, answerCount, isPulished, isStar } = props;
+  const { confirm } = Modal;
+
+  //删除确认提示
+  const confirmDel = () => {
+    confirm({
+      title: 'Confirm',
+      icon: <ExclamationCircleOutlined />,
+      content: '确认删除吗？',
+      okText: '确认',
+      cancelText: '取消',
+      onOk: () => {
+        message.success('删除成功！');
+      },
+    });
+  };
   return (
     <div className={styles.container}>
       <div className={styles.title}>
@@ -67,7 +83,7 @@ const QuestionCard: FC<PropsType> = (props: PropsType) => {
           <Button type="text" icon={<CopyOutlined />}>
             复制
           </Button>
-          <Button type="text" icon={<DeleteOutlined />}>
+          <Button type="text" icon={<DeleteOutlined />} onClick={confirmDel}>
             删除
           </Button>
         </div>
