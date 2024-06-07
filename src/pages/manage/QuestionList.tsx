@@ -72,7 +72,7 @@ const List: FC = () => {
           return <QuestionCard key={_id} {...item} />;
         })}
       </div>
-      <div className={styles.footer}>footer</div>
+      <div className={styles.footer}>Load more ...</div>
     </>
   );
 };
