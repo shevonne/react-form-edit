@@ -1,20 +1,54 @@
-import React, { FC } from 'react';
+import React, { FC, useEffect } from 'react';
 import { Space, Typography, Button, Form, Input, Checkbox } from 'antd';
 import { REGISTER_PATHNAME } from '../router';
 import { Link } from 'react-router-dom';
 import { UserAddOutlined } from '@ant-design/icons';
 import styles from './Login.module.scss';
+
 const { Title } = Typography;
 const Login: FC = () => {
+  const [form] = Form.useForm();
   type FieldType = {
     username?: string;
     password?: string;
     remember?: string;
   };
 
-  const onFinish = (values: FieldType) => {
-    console.log('Success:', values);
+  const USER_NAME_KEY = 'username';
+  const PASS_WORD_KEY = 'password';
+  //记住用户名密码
+  function rememberMe(username: string, password: string) {
+    localStorage.setItem(USER_NAME_KEY, username);
+    localStorage.setItem(PASS_WORD_KEY, password);
+  }
+
+  //不记住用户名密码 删除记忆
+  function forgetMe() {
+    localStorage.removeItem(USER_NAME_KEY);
+    localStorage.removeItem(PASS_WORD_KEY);
+  }
+
+  //获取本地存储的用户名密码
+  function getUserInfoFromStorage() {
+    const username = localStorage.getItem(USER_NAME_KEY);
+    const password = localStorage.getItem(PASS_WORD_KEY);
+    return { username, password };
+  }
+
+  const onFinish = (values: any) => {
+    const { username, password, remember } = values || {};
+    if (remember) {
+      rememberMe(username, password);
+    } else {
+      forgetMe();
+    }
+    console.log('登录', values);
   };
+
+  useEffect(() => {
+    const { username, password } = getUserInfoFromStorage();
+    form.setFieldsValue({ username, password });
+  });
 
   return (
     <div className={styles.container}>
@@ -33,6 +67,7 @@ const Login: FC = () => {
           initialValues={{ remember: true }}
           autoComplete="off"
           onFinish={onFinish}
+          form={form}
         >
           <Form.Item
             label="用户名"
