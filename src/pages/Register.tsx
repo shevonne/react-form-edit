@@ -52,7 +52,20 @@ const Register: FC = () => {
           <Form.Item
             label="确认密码"
             name="confirm"
-            rules={[{ required: true, message: '请输入确认密码!' }]}
+            dependencies={['password']}
+            rules={[
+              {
+                required: true,
+              },
+              ({ getFieldValue }) => ({
+                validator(_, value) {
+                  if (!value || getFieldValue('password') === value) {
+                    return Promise.resolve();
+                  }
+                  return Promise.reject(new Error('两次密码不一致'));
+                },
+              }),
+            ]}
           >
             <Input.Password />
           </Form.Item>
