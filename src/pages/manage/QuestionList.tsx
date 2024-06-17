@@ -1,65 +1,29 @@
-import React, { FC, useState } from 'react';
+import React, { FC, useEffect, useState } from 'react';
 import styles from './Common.module.scss';
-import { useTitle } from 'ahooks';
+import { useTitle, useRequest } from 'ahooks';
 import QuestionCard from '../../components/QuestionCard';
 import { Empty, Typography } from 'antd';
 import ListSearch from '../../components/ListSearch';
+import { getQustionListService } from '../../services/question';
 
-//mock数据
-const rowQuestionList = [
-  {
-    _id: 'req1',
-    title: '问卷1',
-    isPulished: true,
-    isStar: true,
-    answerCount: 3,
-    creatAt: '3月11日 13:20',
-  },
-  {
-    _id: 'req2',
-    title: '问卷2',
-    isPulished: false,
-    isStar: false,
-    answerCount: 0,
-    creatAt: '3月12日 14:30',
-  },
-  {
-    _id: 'req3',
-    title: '问卷3',
-    isPulished: true,
-    isStar: false,
-    answerCount: 5,
-    creatAt: '3月13日 10:45',
-  },
-  {
-    _id: 'req4',
-    title: '问卷4',
-    isPulished: false,
-    isStar: true,
-    answerCount: 2,
-    creatAt: '3月14日 09:00',
-  },
-  {
-    _id: 'req5',
-    title: '问卷5',
-    isPulished: true,
-    isStar: true,
-    answerCount: 7,
-    creatAt: '3月15日 11:55',
-  },
-  {
-    _id: 'req6',
-    title: '问卷6',
-    isPulished: false,
-    isStar: true,
-    answerCount: 1,
-    creatAt: '3月16日 16:10',
-  },
-];
 const { Title } = Typography;
 const List: FC = () => {
   useTitle('我的');
-  const [questionList, SetQuestionList] = useState(rowQuestionList);
+
+  const { data = {}, loading } = useRequest(getQustionListService);
+  const { list = [], total = 0 } = data;
+  //请求列表数据
+  // const [list, setList] = useState([]);
+  // const [total, setTotal] = useState(0);
+  // useEffect(() => {
+  //   async function load() {
+  //     const data = await getQustionListService();
+  //     const { list, total } = data;
+  //     setList(list);
+  //     setTotal(total);
+  //   }
+  //   load();
+  // }, []);
 
   return (
     <>
@@ -72,8 +36,8 @@ const List: FC = () => {
         </div>
       </div>
       <div className={styles.content}>
-        {questionList.length > 0 &&
-          questionList.map((item) => {
+        {list.length > 0 &&
+          list.map((item: any) => {
             const { _id } = item;
             return <QuestionCard key={_id} {...item} />;
           })}
