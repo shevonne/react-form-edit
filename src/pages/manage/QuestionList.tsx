@@ -2,7 +2,7 @@ import React, { FC, useEffect, useState } from 'react';
 import styles from './Common.module.scss';
 import { useTitle, useRequest } from 'ahooks';
 import QuestionCard from '../../components/QuestionCard';
-import { Empty, Typography } from 'antd';
+import { Empty, Typography, Spin } from 'antd';
 import ListSearch from '../../components/ListSearch';
 import { getQustionListService } from '../../services/question';
 
@@ -36,7 +36,13 @@ const List: FC = () => {
         </div>
       </div>
       <div className={styles.content}>
-        {list.length > 0 &&
+        {loading && (
+          <div style={{ textAlign: 'center' }}>
+            <Spin />
+          </div>
+        )}
+        {!loading &&
+          list.length > 0 &&
           list.map((item: any) => {
             const { _id } = item;
             return <QuestionCard key={_id} {...item} />;
