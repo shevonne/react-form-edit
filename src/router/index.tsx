@@ -16,6 +16,8 @@ import Star from '../pages/manage/Star';
 import Edit from '../pages/Question/Edit';
 import Stat from '../pages/Question/Stat';
 
+import Todo from '../reducer/index';
+
 const router = createBrowserRouter([
   {
     path: '/',
@@ -51,7 +53,10 @@ const router = createBrowserRouter([
           },
         ],
       },
-
+      {
+        path: '/todo', //todo
+        element: <Todo />,
+      },
       {
         path: '*', //404路由 最后
         element: <NotFound />,
